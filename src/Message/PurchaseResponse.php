@@ -11,14 +11,14 @@ use Omnipay\Common\Message\RedirectResponseInterface;
 class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
   
-	public function getEndpoint()
-	{
-		if ($this->getRequest()->getTestMode()){
+    public function getEndpoint()
+    {
+        if ($this->getRequest()->getTestMode()){
             return 'https://demomoney.yandex.ru/eshop.xml';
         } else {
             return 'https://money.yandex.ru/eshop.xml';
         }
-	}
+    }
 
 
     public function isSuccessful()

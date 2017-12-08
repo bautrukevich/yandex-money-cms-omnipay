@@ -7,7 +7,6 @@ namespace yandexmoney\YandexMoney\Message;
  */
 class PurchaseRequest extends \Omnipay\Common\Message\AbstractRequest
 {
-	
     public function getPassword()
     {
         return $this->getParameter('password');
@@ -23,40 +22,40 @@ class PurchaseRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->getParameter('method');
     }
 
-	public function setMethod($value)
+    public function setMethod($value)
     {
         return $this->setParameter('method', $value);
     }
-	
-	public function getCustomerNumber()
+
+    public function getCustomerNumber()
     {
         return $this->getParameter('customerNumber');
     }
 
-	public function setCustomerNumber($value)
+    public function setCustomerNumber($value)
     {
         return $this->setParameter('customerNumber', $value);
     }
-	
+
     public function getOrderNumber()
     {
         return $this->getParameter('orderNumber');
     }
 
-	public function setOrderNumber($value)
+    public function setOrderNumber($value)
     {
         return $this->setParameter('orderNumber', $value);
     }
 
-	public function getOrderId()
+    public function getOrderId()
     {
         return $this->getParameter('orderId');
     }
-	public function setOrderId($value)
+    public function setOrderId($value)
     {
         return $this->setParameter('orderId', $value);
     }
-	public function getShopId()
+    public function getShopId()
     {
         return $this->getParameter('shopid');
     }
@@ -66,7 +65,7 @@ class PurchaseRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('shopid', $value);
     }
 
-	public function getScid()
+    public function getScid()
     {
         return $this->getParameter('scid');
     }
@@ -76,7 +75,7 @@ class PurchaseRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('scid', $value);
     }
 
-	public function getCurrencyNum()
+    public function getCurrencyNum()
     {
         return $this->getParameter('currencyNum');
     }
@@ -86,80 +85,94 @@ class PurchaseRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('currencyNum', $value);
     }
 
-	public function getAction()
-	{
-		 return $this->getParameter('action');
-	}
-	public function setAction($value)
-	{
-		return $this->setParameter('action', $value);
-	}
-	
+    public function getAction()
+    {
+         return $this->getParameter('action');
+    }
+    public function setAction($value)
+    {
+        return $this->setParameter('action', $value);
+    }
 
-	public function getOrderSumAmount()
-	{
-		 return $this->getParameter('orderSumAmount');
-	}
-	public function getOrderSumCurrencyPaycash()
-	{
-		 return $this->getParameter('orderSumCurrencyPaycash');
-	}
-	public function getOrderSumBankPaycash()
-	{
-		 return $this->getParameter('orderSumBankPaycash');
-	}
-	
-	public function setOrderSumAmount($value)
-	{
-		 return $this->setParameter('orderSumAmount', $value);
-	}
-	public function setOrderSumCurrencyPaycash($value)
-	{
-		 return $this->setParameter('orderSumCurrencyPaycash', $value);
-	}
-	public function setOrderSumBankPaycash($value)
-	{
-		 return $this->setParameter('orderSumBankPaycash', $value);
-	}
 
-	public function getInvoiceId()
-	{
-		return $this->getParameter('invoiceId');
-	}
-	public function setInvoiceId($value)
-	{
-		return $this->setParameter('invoiceId', $value);
-	}
-	public function getMd5()
-	{
-		 return $this->getParameter('md5');
-	}
-	public function setMd5($value)
-	{
-		return $this->setParameter('md5', $value);
-	}
-	
-	
+    public function getOrderSumAmount()
+    {
+         return $this->getParameter('orderSumAmount');
+    }
+    public function getOrderSumCurrencyPaycash()
+    {
+         return $this->getParameter('orderSumCurrencyPaycash');
+    }
+    public function getOrderSumBankPaycash()
+    {
+         return $this->getParameter('orderSumBankPaycash');
+    }
+
+    public function setOrderSumAmount($value)
+    {
+         return $this->setParameter('orderSumAmount', $value);
+    }
+    public function setOrderSumCurrencyPaycash($value)
+    {
+         return $this->setParameter('orderSumCurrencyPaycash', $value);
+    }
+    public function setOrderSumBankPaycash($value)
+    {
+         return $this->setParameter('orderSumBankPaycash', $value);
+    }
+
+    public function getInvoiceId()
+    {
+        return $this->getParameter('invoiceId');
+    }
+    public function setInvoiceId($value)
+    {
+        return $this->setParameter('invoiceId', $value);
+    }
+    public function getMd5()
+    {
+         return $this->getParameter('md5');
+    }
+    public function setMd5($value)
+    {
+        return $this->setParameter('md5', $value);
+    }
+
+    public function getReceipt()
+    {
+        return $this->getParameter('receipt');
+    }
+
+    public function setReceipt($value)
+    {
+        return $this->setParameter('receipt', $value);
+    }
+
+
     public function getData()
     {
-		$this->validate('shopid', 'scid', 'customerNumber', 'amount', 'orderId', 
-						'method', 'returnUrl', 'cancelUrl');
+        $this->validate('shopid', 'scid', 'customerNumber', 'amount', 'orderId',
+                        'method', 'returnUrl', 'cancelUrl');
 
-			
         $data = array();
-		$data['scid'] = $this->getScid();
-		$data['shopid'] = $this->getShopId();
-		$data['customerNumber'] = $this->getCustomerNumber();
-		$data['orderNumber'] = $this->getOrderId();
-		$data['sum'] = $this->getAmount();
-		$data['orderSumCurrencyPaycash'] = $this->getCurrencyNum();
+        $data['scid'] = $this->getScid();
+        $data['shopid'] = $this->getShopId();
+        $data['customerNumber'] = $this->getCustomerNumber();
+        $data['orderNumber'] = $this->getOrderId();
+        $data['sum'] = $this->getAmount();
+        $data['orderSumCurrencyPaycash'] = $this->getCurrencyNum();
 
-		$data['paymentType'] = $this->getMethod();	
+        $data['paymentType'] = $this->getMethod();
 
-		$data['shopSuccessURL'] = $this->getReturnUrl();
-		$data['shopFailURL'] = $this->getCancelUrl();
-		
-		return $data;
+        $data['shopSuccessURL'] = $this->getReturnUrl();
+        $data['shopFailURL'] = $this->getCancelUrl();
+
+        $receipt = $this->getReceipt();
+        if (!empty($receipt)) {
+            $data['ym_merchant_receipt'] = $receipt;
+        }
+
+        return $data;
     }
 
     public function sendData($data)

@@ -19,18 +19,18 @@ class Gateway extends AbstractGateway
     {
         return array(
             'password'  => '',
-			'shopid' => '', 
-			'scid' => '',
-			'method' => '',
-			'orderId' => '',
-			'invoiceId' => '',
-			'md5' => '',
-			'currencyNum' => '',
-			'orderNumber' => '',
-			'customerNumber' => '',
-			'returnUrl' => '',
-			'cancelUrl' => '',
-            'receipt' => ''
+            'shopid' => '',
+            'scid' => '',
+            'method' => '',
+            'orderId' => '',
+            'invoiceId' => '',
+            'md5' => '',
+            'currencyNum' => '',
+            'orderNumber' => '',
+            'customerNumber' => '',
+            'returnUrl' => '',
+            'cancelUrl' => '',
+            'receipt' => '',
         );
     }
 
@@ -62,7 +62,7 @@ class Gateway extends AbstractGateway
         return $this->setParameter('password', $value);
     }
 
-	public function getShopId()
+    public function getShopId()
     {
         return $this->getParameter('shopid');
     }
@@ -72,7 +72,7 @@ class Gateway extends AbstractGateway
         return $this->setParameter('shopid', $value);
     }
 
-	public function getScid()
+    public function getScid()
     {
         return $this->getParameter('scid');
     }
@@ -81,92 +81,96 @@ class Gateway extends AbstractGateway
     {
         return $this->setParameter('scid', $value);
     }
-	public function getOrderId()
+    public function getOrderId()
     {
         return $this->getParameter('orderId');
     }
-	public function setOrderId($value)
+    public function setOrderId($value)
     {
         return $this->setParameter('orderId', $value);
     }
-	public function getOrderNumber()
+    public function getOrderNumber()
     {
         return $this->getParameter('orderNumber');
     }
-	public function setOrderNumber($value)
+    public function setOrderNumber($value)
     {
         return $this->setParameter('orderNumber', $value);
     }
-	public function getCustomerNumber()
+    public function getCustomerNumber()
     {
         return $this->getParameter('customerNumber');
     }
-	public function setCustomerNumber($value)
+    public function setCustomerNumber($value)
     {
         return $this->setParameter('customerNumber', $value);
     }
-	public function getInvoiceId()
-	{
-		return $this->getParameter('invoiceId');
-	}
-	public function setInvoiceId($value)
-	{
-		return $this->setParameter('invoiceId', $value);
-	}
-	public function getMd5()
-	{
-		 return $this->getParameter('md5');
-	}
-	public function setMd5($value)
-	{
-		return $this->setParameter('md5', $value);
-	}
+    public function getInvoiceId()
+    {
+        return $this->getParameter('invoiceId');
+    }
+    public function setInvoiceId($value)
+    {
+        return $this->setParameter('invoiceId', $value);
+    }
+    public function getMd5()
+    {
+         return $this->getParameter('md5');
+    }
+    public function setMd5($value)
+    {
+        return $this->setParameter('md5', $value);
+    }
 
-	public function getMethod()
-	{
-		 return $this->getParameter('method');
-	}
+    public function getMethod()
+    {
+         return $this->getParameter('method');
+    }
 
-	public function setMethod($value)
-	{
-		 return $this->setParameter('method', $value);
-	}
+    public function setMethod($value)
+    {
+         return $this->setParameter('method', $value);
+    }
 
-	public function getReturnUrl()
-	{
-		 return $this->getParameter('returnUrl');
-	}
+    public function getReturnUrl()
+    {
+         return $this->getParameter('returnUrl');
+    }
 
-	public function setReturnUrl($value)
-	{
-		 return $this->setParameter('returnUrl', $value);
-	}
-	public function getCancelUrl()
-	{
-		 return $this->getParameter('cancelUrl');
-	}
+    public function setReturnUrl($value)
+    {
+         return $this->setParameter('returnUrl', $value);
+    }
+    public function getCancelUrl()
+    {
+         return $this->getParameter('cancelUrl');
+    }
 
-	public function setCancelUrl($value)
-	{
-		 return $this->setParameter('cancelUrl', $value);
-	}
+    public function setCancelUrl($value)
+    {
+         return $this->setParameter('cancelUrl', $value);
+    }
 
 
-	public function getCurrencyNum()
+    public function getCurrencyNum()
     {
         return $this->getParameter('currencyNum');
     }
-	
+
     public function setCurrencyNum($value)
     {
         return $this->setParameter('currencyNum', $value);
     }
 
-	public function authorize(array $parameters = array())
+    public function authorize(array $parameters = array())
     {
-		return $this->createRequest('\yandexmoney\YandexMoney\Message\AuthorizeRequest', $parameters);
+        return $this->createRequest('\yandexmoney\YandexMoney\Message\AuthorizeRequest', $parameters);
     }
-    
+
+    /**
+     * @param array $parameters
+     * @return \Omnipay\Common\Message\AbstractRequest
+     */
     public function purchase(array $parameters = array())
     {
         return $this->createRequest('\yandexmoney\YandexMoney\Message\PurchaseRequest', $parameters);
@@ -174,7 +178,6 @@ class Gateway extends AbstractGateway
 
     public function completePurchase(array $parameters = array())
     {
-		return $this->createRequest('\yandexmoney\YandexMoney\Message\CompletePurchaseRequest', $parameters);
+        return $this->createRequest('\yandexmoney\YandexMoney\Message\CompletePurchaseRequest', $parameters);
     }
-
 }
