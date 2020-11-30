@@ -14,9 +14,9 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
     public function getEndpoint()
     {
         if ($this->getRequest()->getTestMode()){
-            return 'https://demomoney.yandex.ru/eshop.xml';
+            return 'https://demomoney.yoomoney.ru/eshop.xml'
         } else {
-            return 'https://money.yandex.ru/eshop.xml';
+            return 'https://yoomoney.ru/eshop.xml';
         }
     }
 
